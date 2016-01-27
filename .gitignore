@@ -1,0 +1,4 @@
+venv/
+*.py[c,o]
+.cache
+__pycache__

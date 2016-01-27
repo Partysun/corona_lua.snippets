@@ -1,0 +1,16 @@
+[
+    {
+        "displayText": "audio.dispose( audioHandle )",
+        "type": "function",
+        "description": "Releases audio memory associated with the handle.",
+        "descriptionMoreUrl": "http:\/\/docs.local.coronalabs.com\/api\/library\/audio\/dispose.html",
+        "snippet": "audio.dispose( ${1:audioHandle} )"
+    },
+    {
+        "displayText": "audio.fade( [ { [channel=c] [, time=t] [, volume=v ] } ] )",
+        "type": "function",
+        "description": "This fades a playing sound in a specified amount to a specified volume. The audio will continue playing after the fade completes.",
+        "descriptionMoreUrl": "http:\/\/docs.local.coronalabs.com\/api\/library\/audio\/fade.html",
+        "snippet": "audio.fade( ${1:[ { [channel=c] [, time=t] [, volume=v ] } ]} )"
+    }
+]
