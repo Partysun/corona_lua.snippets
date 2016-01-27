@@ -1,0 +1,1269 @@
+snippet comment "Lua style comments"
+--------------------------------------------
+-- ${1:comment}
+--------------------------------------------
+endsnippet
+
+snippet trace "trace message in console"
+print('${1:message}')
+endsnippet
+
+snippet print "trace message in console"
+print('${1:message}')
+endsnippet
+
+snippet print "transition.to( target, params )"
+transition.to( ${1:target}, ${2:params} )
+endsnippet
+
+snippet audio.dispose(audioHandle) "Releases audio memory associated with the handle."
+audio.dispose( ${1:audioHandle} )
+endsnippet
+
+snippet audio.fade([{[channel=c][,time=t][,volume=v]}]) "This fades a playing sound in a specified amount to a specified volume. The audio will continue playing after the fade completes."
+audio.fade( ${1:[ { [channel=c] [, time=t] [, volume=v ] } ]} )
+endsnippet
+
+snippet audio.fadeOut([{[channel=c][,time=t]}]) "This stops a playing sound in a specified amount of time and fades to min volume while doing it. The audio will stop at the end of the time and the channel will be freed."
+audio.fadeOut( ${1:[ { [channel=c] [, time=t] } ]} )
+endsnippet
+
+snippet audio.findFreeChannel([startChannel]) "Looks for an available audio channel for playback. You can provide a start channel number as parameter and begin searching from that channel, increasing upward to the highest channel. The search does not include reserved channels."
+audio.findFreeChannel( ${1:[ startChannel ]} )
+endsnippet
+
+snippet audio.getDuration(audioHandle) "This function returns the total time in milliseconds of the audio resource. If the total length cannot be determined, -1 will be returned."
+audio.getDuration( ${1:audioHandle} )
+endsnippet
+
+snippet audio.getMaxVolume({channel=c}) "Gets the max volume for a specific channel. There is no max volume for the master volume."
+audio.getMaxVolume( { ${1:channel}=${2:c} } )
+endsnippet
+
+snippet audio.getMinVolume({channel=c}) "Gets the minimum volume for a specific channel. There is no minimum volume for the master volume."
+audio.getMinVolume( { ${1:channel}=${2:c} } )
+endsnippet
+
+snippet audio.getVolume({channel=c}) "Gets the volume for a specific channel, or gets the master volume."
+audio.getVolume( { ${1:channel}=${2:c} } )
+endsnippet
+
+snippet audio.isChannelActive(channel) "Returns true if the specified channel is currently playing or paused; false if otherwise."
+audio.isChannelActive( ${1:channel} )
+endsnippet
+
+snippet audio.isChannelPaused(channel) "Returns true if the specified channel is currently paused; false if not."
+audio.isChannelPaused( ${1:channel} )
+endsnippet
+
+snippet audio.isChannelPlaying(channel) "Returns true if the specified channel is currently playing; false if otherwise."
+audio.isChannelPlaying( ${1:channel} )
+endsnippet
+
+snippet audio.loadSound(audiofileName[,baseDir]) "Loads an entire file completely into memory and returns a reference to the audio data. Files that are loaded completely into memory may be reused/played/shared simultaneously on multiple channels so you only need to load one instance of the file. You should use this to load all your short sounds, especially ones you may play frequently. For best results, load all the sounds at the launch of your app or the start of a new level/scene."
+audio.loadSound( ${1:audiofileName} ${2:[, baseDir ]}  )
+endsnippet
+
+snippet audio.loadStream(audioFileName[,baseDir]) "Loads (opens) a file to be read as a stream. Streamed files are read in little chunks at a time to minimize memory use. These are intended for large/long files like background music and speech. Unlike files loaded with audio.loadSound(), these cannot be shared simultaneously across multiple channels. If you need to play multiple simulataneous instances of the same file, you must load multiple instances of the file."
+audio.loadStream( ${1:audioFileName} ${2:[, baseDir ]}  )
+endsnippet
+
+snippet audio.pause([channel]) "Pauses playback on a channel (or all channels if no channels are specified). Has no effect on channels that aren't playing."
+audio.pause( ${1:[channel]} )
+endsnippet
+
+snippet audio.play(audioHandle[,options]) "Plays the audio specified by the audio handle on a channel. If a channel is not explicitly specified, an available channel will be automatically chosen for you."
+audio.play( ${1:audioHandle} ${2:[, options ]} )
+endsnippet
+
+snippet audio.reserveChannels(channels) "Allows you to reserve a certain number of channels so they won't be automatically assigned to play on. This function blocks off the lower number channels up to the number you specify so they won't be automatically assigned to be played on when you call various play functions."
+audio.reserveChannels( ${1:channels} )
+endsnippet
+
+snippet audio.resume([channel]) "Resumes playback on a channel that is paused (or all channels if no channel is specified). Should have no effect on channels that aren't paused."
+audio.resume( ${1:[channel]} )
+endsnippet
+
+snippet audio.rewind([audioHandle|options]) "Rewinds audio to the beginning position on either an active channel or directly on the audio handle (rewinds all channels if no arguments are specified)."
+audio.rewind( ${1:[audioHandle | options]} )
+endsnippet
+
+snippet audio.seek(time[,audioHandle][,options]) "Seeks to a time position on either an active channel or directly on the audio handle."
+audio.seek( ${1:time} ${2:[, audioHandle ] [, options ]} )
+endsnippet
+
+snippet audio.setMaxVolume(volume,options) "Clamps the maximum volume to the set value. Any volumes that exceed the value will be played at the maximum volume level."
+audio.setMaxVolume( ${1:volume}, ${2:options} )
+endsnippet
+
+snippet audio.setMinVolume(volume,options) "Clamps the minimum volume to the set value. Any volumes that fall below the value will be played at the minimum volume level."
+audio.setMinVolume( ${1:volume}, ${2:options} )
+endsnippet
+
+snippet audio.setVolume(volume[,options]) "Sets the volume either for a specific channel or sets the master volume."
+audio.setVolume( ${1:volume} ${2:[, options ]} )
+endsnippet
+
+snippet audio.stop([channel]) "Stops playback on a channel (or all channels) and clears the channel(s) so they can be played on again. Callbacks will still be invoked, but the completed flag will be set to false."
+audio.stop( ${1:[channel]} )
+endsnippet
+
+snippet audio.stopWithDelay(duration[,options]) "Stops a currently playing sound after the specified time delay."
+audio.stopWithDelay( ${1:duration} ${2:[, options ]} )
+endsnippet
+
+snippet composer.getScene(sceneName) "Returns the specified scene object, as returned from composer.newScene(). Returns nil if the scene object does not exist. This function is useful for getting a reference to a specific scene object — for instance, if the current scene needs access to a specific function that's attached to another scene."
+composer.getScene( ${1:sceneName} )
+endsnippet
+
+snippet composer.getSceneName(sceneType) "Returns the current, previous, or overlay scene name as a string. This can then be used with composer.gotoScene() or composer.removeScene()."
+composer.getSceneName( ${1:sceneType} )
+endsnippet
+
+snippet composer.getVariable(variableName) "This function retrieves the value of a variable (from within the Composer object) that you previously set via composer.setVariable()."
+composer.getVariable( ${1:variableName} )
+endsnippet
+
+snippet composer.gotoScene(sceneName[,options]) "This function is used to transition to a specific scene. When called, the hide event is dispatched to the current scene (if one exists). If a self.view group does not already exist for the specified target scene, the create event will be dispatched to that scene, then the show event will be dispatched."
+composer.gotoScene( ${1:sceneName} ${2:[, options]} )
+endsnippet
+
+snippet composer.hideOverlay([recycleOnly][,effect][,time]) "This function hides/removes the current overlay scene (see composer.showOverlay()), if one is being displayed."
+composer.hideOverlay( ${1:[recycleOnly]} ${2:[, effect]} ${3:[, time]} )
+endsnippet
+
+snippet composer.loadScene(sceneName[,doNotLoadView][,params]) "Loads the specified scene, hidden behind the current scene, without initiating a scene transition. This function is similar to composer.gotoScene(), but it does not change the currently active scene. Only the create event will be dispatched on the scene, assuming its self.view does not already exist."
+composer.loadScene( ${1:sceneName} ${2:[, doNotLoadView]} ${3:[, params]} )
+endsnippet
+
+snippet composer.newScene(ccscene) "This function creates new scene objects which can be used with the Composer Library, or references scenes created within the Composer GUI."
+composer.newScene( ${1:ccscene} )
+endsnippet
+
+snippet composer.removeHidden(shouldRecycle) "This function removes (or optionally recycles) all scenes except for the currently active scene. A destroy event is first dispatched to all of these scenes."
+composer.removeHidden( ${1:shouldRecycle} )
+endsnippet
+
+snippet composer.removeScene(sceneName,shouldRecycle) "This function removes the specified scene (or optionally recycles it). A destroy event is first dispatched to the scene."
+composer.removeScene( ${1:sceneName}, ${2:shouldRecycle} )
+endsnippet
+
+snippet composer.setVariable(variableName,value) "This function sets a variable (within the Composer module) which you can access from any other scene via composer.getVariable()."
+composer.setVariable( ${1:variableName}, ${2:value} )
+endsnippet
+
+snippet composer.showOverlay(sceneName[,options]) "This function loads an overlay scene above the currently active scene (the parent scene), leaving the parent scene intact."
+composer.showOverlay( ${1:sceneName} ${2:[, options]} )
+endsnippet
+
+snippet crypto.digest(algorithm,data[,raw]) "Generates the message digest (the hash) of the input string."
+crypto.digest( ${1:algorithm}, ${2:data} ${3:[, raw]} )
+endsnippet
+
+snippet crypto.hmac(algorithm,data,key[,raw]) "Computes HMAC (Key-Hashing for Message Authentication Code) of the string and returns it."
+crypto.hmac( ${1:algorithm}, ${2:data}, ${3:key} ${4:[, raw]} )
+endsnippet
+
+snippet display.capture(displayObject,options) "This function is the same as display.save(), but it returns a display object instead of saving to a file by default. You can optionally save the capture to the device's photo library, but this is not the default action — you must explicitly tell it to do so when calling the function."
+display.capture( ${1:displayObject}, ${2:options} )
+endsnippet
+
+snippet display.captureBounds(screenBounds[,saveToAlbum]) "Captures a portion of the screen and returns it as a new DisplayObject. You can specify what portion of the screen to capture by passing in rectangular bounds. You can optionally save the capture image as a file to the device's photo library."
+display.captureBounds( ${1:screenBounds} ${2:[, saveToAlbum ]} )
+endsnippet
+
+snippet display.captureScreen([saveToAlbum]) "Captures the contents of the screen and returns it as a new display object. You can optionally save the capture as a file to the device's photo library."
+display.captureScreen( ${1:[saveToAlbum]} )
+endsnippet
+
+snippet display.colorSample(x,y,listener) "Get the color of a pixel on screen."
+display.colorSample( ${1:x}, ${2:y}, ${3:listener} )
+endsnippet
+
+snippet display.getCurrentStage() "Returns a reference to the current stage object, which is the parent group for all display objects and groups. Currently, Corona has a single stage instance, so this function always returns a reference to the same object."
+display.getCurrentStage()
+endsnippet
+
+snippet display.getDefault(key) "Get default display values including default colors for display objects, anchor point defaults, texture wrapping settings, etc."
+display.getDefault( ${1:key} )
+endsnippet
+
+snippet display.loadRemoteImage(url,method,listener[,params],destFilename[,baseDir][,x,y]) "This a convenience method, similar to network.download(), which returns a display object containing the image, as well as saving the image to a file."
+display.loadRemoteImage( ${1:url}, ${2:method}, ${3:listener} ${4:[, params]}, ${5:destFilename} ${6:[, baseDir]} ${7:[, x, y]} )
+endsnippet
+
+snippet display.newCircle(xCenter,yCenter,radius) "Creates a circle with radius radius centered at specified coordinates (xCenter, yCenter). The local origin is at the center of the circle and the anchor point is initialized to this local origin."
+display.newCircle( ${1:xCenter}, ${2:yCenter}, ${3:radius} )
+endsnippet
+
+snippet display.newCircle(parent,xCenter,yCenter,radius) "Creates a circle with radius radius centered at specified coordinates (xCenter, yCenter). The local origin is at the center of the circle and the anchor point is initialized to this local origin."
+display.newCircle( ${1:parent}, ${2:xCenter}, ${3:yCenter}, ${4:radius} )
+endsnippet
+
+snippet display.newContainer([parent,]width,height) "Containers are a special kind of group in which the children are clipped (masked) by the bounds of the container."
+display.newContainer( ${1:[parent, ]} ${2:width}, ${3:height} )
+endsnippet
+
+snippet display.newEmbossedText({options}) "Creates an embossed text object. The local origin is at the center of the text and the anchor point is initialized to this local origin."
+display.newEmbossedText( { ${1:options} } )
+endsnippet
+
+snippet display.newEmitter(emitterParams) "This function is used to create an EmitterObject, used to display particle effects created with Particle Designer."
+display.newEmitter( ${1:emitterParams} )
+endsnippet
+
+snippet display.newGroup() "Creates a group in which you can add and remove child display objects. Initially, there are no children in a group. The local origin is at the parent's origin; the anchor point is initialized to this local origin."
+display.newGroup()
+endsnippet
+
+snippet display.newImage([parent,]filename[,baseDir][,x,y][,isFullResolution]) "Displays an image on the screen from a file (supports tinting via object:setFillColor). The local origin is at the center of the image and the anchor point is initialized to this local origin."
+display.newImage( ${1:[parent,]} ${2:filename} ${3:[,baseDir] [,x,y] [,isFullResolution]})
+endsnippet
+
+snippet display.newImageRect([parent,]filename,[baseDir,]width,height) "Displays an image on the screen from a file (supports tinting via object:setFillColor). The local origin is at the center of the image and the anchor point is initialized to this local origin."
+display.newImageRect( ${1:[parent,]} ${2:filename}, ${3:[baseDir,]} ${4:width}, ${5:height} )
+endsnippet
+
+snippet display.newLine([parentGroup,]x1,y1,x2,y2[,x3,y3,...]) "Draw a line from one point to another. Optionally, you may append points to the end of the line to create outline shapes or paths."
+display.newLine( ${1:[parentGroup,]} ${2:x1}, ${3:y1}, ${4:x2}, ${5:y2} ${6:[, x3, y3, ... ]} )
+endsnippet
+
+snippet display.newPolygon(x,y,vertices) "Draws a polygon shape by providing the outline (contour) of the shape. This includes convex or concave shapes. Self-intersecting shapes, however, are not supported and will result in undefined behavior."
+display.newPolygon( ${1:x}, ${2:y}, ${3:vertices} )
+endsnippet
+
+snippet display.newPolygon(parent,x,y,vertices) "Draws a polygon shape by providing the outline (contour) of the shape. This includes convex or concave shapes. Self-intersecting shapes, however, are not supported and will result in undefined behavior."
+display.newPolygon( ${1:parent}, ${2:x}, ${3:y}, ${4:vertices} )
+endsnippet
+
+snippet display.newRect(x,y,width,height) "Creates a rectangle object. The local origin is at the center of the rectangle and the anchor point is initialized to this local origin."
+display.newRect( ${1:x}, ${2:y}, ${3:width}, ${4:height} )
+endsnippet
+
+snippet display.newRect(parent,x,y,width,height) "Creates a rectangle object. The local origin is at the center of the rectangle and the anchor point is initialized to this local origin."
+display.newRect( ${1:parent}, ${2:x}, ${3:y}, ${4:width}, ${5:height} )
+endsnippet
+
+snippet display.newRoundedRect(x,y,width,height,cornerRadius) "Creates a rounded rectangle object. The corners are rounded by quarter circles of a specified radius value. The local origin is at the center of the rectangle and the anchor point is initialized to this local origin."
+display.newRoundedRect( ${1:x}, ${2:y}, ${3:width}, ${4:height}, ${5:cornerRadius} )
+endsnippet
+
+snippet display.newRoundedRect(parent,x,y,width,height,cornerRadius) "Creates a rounded rectangle object. The corners are rounded by quarter circles of a specified radius value. The local origin is at the center of the rectangle and the anchor point is initialized to this local origin."
+display.newRoundedRect( ${1:parent}, ${2:x}, ${3:y}, ${4:width}, ${5:height}, ${6:cornerRadius} )
+endsnippet
+
+snippet display.newSnapshot(w,h) "Snapshot objects let you capture a group of display objects and render them into a flattened image. The image is defined by objects that are added to the snapshot's group property."
+display.newSnapshot( ${1:w}, ${2:h} )
+endsnippet
+
+snippet display.newSnapshot(parent,w,h) "Snapshot objects let you capture a group of display objects and render them into a flattened image. The image is defined by objects that are added to the snapshot's group property."
+display.newSnapshot( ${1:parent}, ${2:w}, ${3:h} )
+endsnippet
+
+snippet display.newSprite(imageSheet,sequenceData) "Creates a sprite object. Sprites allow for animated sequences of frames that reside on image sheets. Please see the Sprite Animation and Image Sheets guides for more information."
+display.newSprite( ${1:imageSheet}, ${2:sequenceData} )
+endsnippet
+
+snippet display.newSprite(parent,imageSheet,sequenceData) "Creates a sprite object. Sprites allow for animated sequences of frames that reside on image sheets. Please see the Sprite Animation and Image Sheets guides for more information."
+display.newSprite( ${1:parent}, ${2:imageSheet}, ${3:sequenceData} )
+endsnippet
+
+snippet display.newText(options) "Creates a text object. The local origin is at the center of the text and the anchor point is initialized to this local origin."
+display.newText( ${1:options} )
+endsnippet
+
+snippet display.remove(object) "Removes a group or object if not nil."
+display.remove( ${1:object} )
+endsnippet
+
+snippet display.save(displayObject,options) "Renders the display object referenced by first argument into a JPEG or PNG image and saves it as a new file. The display object must currently be in the display hierarchy or no image will be saved. If the object is a display group, all children are also rendered."
+display.save( ${1:displayObject}, ${2:options} )
+endsnippet
+
+snippet display.setDefault(key,value) "Set default display values including default colors for display objects, anchor point defaults, texture wrapping settings, etc."
+display.setDefault( ${1:key}, ${2:value} )
+endsnippet
+
+snippet display.setDefault(key,r,g,b,alpha) "Set default display values including default colors for display objects, anchor point defaults, texture wrapping settings, etc."
+display.setDefault( ${1:key}, ${2:r}, ${3:g}, ${4:b}, ${5:alpha} )
+endsnippet
+
+snippet display.setDefault(key,r,g,b) "Set default display values including default colors for display objects, anchor point defaults, texture wrapping settings, etc."
+display.setDefault( ${1:key}, ${2:r}, ${3:g}, ${4:b} )
+endsnippet
+
+snippet display.setDefault(key,gray) "Set default display values including default colors for display objects, anchor point defaults, texture wrapping settings, etc."
+display.setDefault( ${1:key}, ${2:gray} )
+endsnippet
+
+snippet display.setDefault(key,gray,alpha) "Set default display values including default colors for display objects, anchor point defaults, texture wrapping settings, etc."
+display.setDefault( ${1:key}, ${2:gray}, ${3:alpha} )
+endsnippet
+
+snippet display.setDrawMode(key,value) "Sets the draw mode."
+display.setDrawMode( ${1:key}, ${2:value} )
+endsnippet
+
+snippet display.setStatusBar(mode) "Hides or changes the appearance of the status bar on most devices."
+display.setStatusBar( ${1:mode} )
+endsnippet
+
+snippet assert(v[,message]) "Issues an error and aborts the program when the value of its first argument is false (i.e. nil or false). Otherwise, it returns all its arguments."
+assert( ${1:v} ${2:[, message]} )
+endsnippet
+
+snippet collectgarbage([opt[,arg]]) "A generic interface to Lua's garbage collector. Using this function is not required because Lua has automatic garbage collection features."
+collectgarbage( ${1:[opt [, arg]]} )
+endsnippet
+
+snippet error(message[,level]) "Terminates the last protected function called (see: pcall()) and returns the first argument as the error message."
+error( ${1:message} ${2:[, level]} )
+endsnippet
+
+snippet getfenv([f]) "Returns the current environment in use by a specified Function. The first argument can be a Function or a Number that specifies the function at that stack level: level 1 is the function calling getfenv(). If the given function is not a Lua function, or if f is 0, getfenv() returns the global environment. The default for f is 1."
+getfenv( ${1:[f]} )
+endsnippet
+
+snippet getmetatable(object) "Gets the metatable of a specified Table. If the table does not have a metatable, it returns nil. Otherwise, if the object's metatable has a __metatable field, it returns the associated value. Otherwise, it returns the metatable of the given table."
+getmetatable( ${1:object} )
+endsnippet
+
+snippet ipairs(t) "This function returns three values: an iteration Function, a Table, and 0. For example, the following construction will iterate over the pairs (1,t[1]), (2,t[2]), ..., up to the first integer key absent from the table."
+ipairs( ${1:t} )
+endsnippet
+
+snippet next(array[,index]) "Allows a program to traverse all fields of an Array. next() returns the next index of the array and its associated value. When called with nil as its second argument, next() returns an initial index and its associated value. When called with the last index, or with nil in an empty array, next() returns nil. If the second argument is absent, then it is interpreted as nil. In particular, you can use next(t) to check whether an array is empty."
+next( ${1:array} ${2:[, index]} )
+endsnippet
+
+snippet pairs(t) "Returns three values: the next function, a table, or nil. So, the following construction will iterate over all key-value pairs of table t."
+pairs( ${1:t} )
+endsnippet
+
+snippet pcall(f[,...]) "Calls a function specified as the first argument, with the given arguments (as the following arguments) in protected mode. This means that any error inside f is not propagated; instead, pcall() catches the error and returns a status code. Its first result is the status code (a Boolean), which is true if the call succeeds without errors. In such case, pcall() also returns all results from the call, after this first result. In case of any error, pcall() returns false plus the error message."
+pcall( ${1:f} ${2:[, ...]} )
+endsnippet
+
+snippet print(...) "Receives any number of arguments and prints their values to stdout (Corona Simulator Console, Xcode, ADB, etc.) using the tostring() function which converts them to strings. print() is not intended for formatted output, but rather as a quick way to show a value, typically for debugging. For formatted output, use string.format."
+print( ${1:...} )
+endsnippet
+
+snippet rawequal(value1,value2) "Performs an equality (==) check between two values without invoking a metamethod. Returns a Boolean."
+rawequal( ${1:value1}, ${2:value2} )
+endsnippet
+
+snippet rawget(table,index) "Gets the real value of table[index], without invoking any metamethod. table must be a Table; index may be any Number or String."
+rawget( ${1:table}, ${2:index} )
+endsnippet
+
+snippet rawset(table,index,value) "Sets the real value of table[index] to value without invoking any metamethod. table must be a table, index any value different from nil, and value any Lua value."
+rawset( ${1:table}, ${2:index}, ${3:value} )
+endsnippet
+
+snippet select(index,...) "If index is a number, select() returns all arguments after argument number index. Otherwise, index must be the string #, and select() returns the total number of extra arguments it received."
+select( ${1:index}, ${2:...} )
+endsnippet
+
+snippet setfenv(f,table) "Sets the environment — or the table where Lua keeps all its global variables — to be used by the given function."
+setfenv( ${1:f}, ${2:table} )
+endsnippet
+
+snippet setmetatable(table,metatable) "Sets the metatable for the given table (you cannot change the metatable of other types from Lua, only from C). If metatable is nil, removes the metatable of the given table. If the original metatable has a __metatable field, it raises an error."
+setmetatable( ${1:table}, ${2:metatable} )
+endsnippet
+
+snippet tonumber(e[,base]) "Tries to convert its argument to a number. If the argument is already a number or a string that can be converted to a number, tonumber() returns the number, otherwise, it returns nil."
+tonumber( ${1:e} ${2:[, base ]} )
+endsnippet
+
+snippet tostring(e) "This API is a useful debug tool for displaying or concatenating nil values. For complete control of how numbers are converted to strings, use string.format()."
+tostring( ${1:e} )
+endsnippet
+
+snippet type(v) "Returns the type of its argument. Possible results are:"
+type( ${1:v} )
+endsnippet
+
+snippet unpack(list[,i[,j]]) "Returns the elements from the given table. This function is equivalent to the following:"
+unpack( ${1:list} ${2:[, i [, j ]]} )
+endsnippet
+
+snippet graphics.defineEffect(effect) "This function allows you to extend Corona and define a custom shader effect. Your custom effect can define either a vertex kernel or a fragment kernel (or both). These kernels are similar to shaders, except that they must define functions with a specific name and which conform to specific function signatures."
+graphics.defineEffect( ${1:effect} )
+endsnippet
+
+snippet graphics.newImageSheet(filename,[baseDir,]options) "ImageSheet objects allow you to load multiple graphics from a single image file (also known as a spritesheet). Image sheets can be used for static images (useful for preloading many static images) and animated sprites."
+graphics.newImageSheet( ${1:filename}, ${2:[baseDir, ]} ${3:options} )
+endsnippet
+
+snippet graphics.newMask(filename[,baseDir]) "Creates a bit mask from an image file. The image is converted internally to grayscale. The white pixels of the bit mask allow the covered image to be visible, while black pixels hide (mask) the covered image. The area outside of the mask must be filled with black pixels which mask off the area outside the mask image."
+graphics.newMask( ${1:filename} ${2:[, baseDir]} )
+endsnippet
+
+snippet graphics.newOutline(coarsenessInTexels,imageFileName[,baseDir]) "This function produces the outline of the shape obtained from an image file or a frame within an ImageSheet. A shape is recognized by the image's non-transparent alpha value. Generally, simpler images produce better outlines."
+graphics.newOutline( ${1:coarsenessInTexels}, ${2:imageFileName} ${3:[, baseDir]} )
+endsnippet
+
+snippet graphics.newTexture(params) "Creates a TextureResource object which allows you to access and manage textures. This can be used to pre-load a texture/image and prevent it from being disposed when there is no display object using it."
+graphics.newTexture( ${1:params} )
+endsnippet
+
+snippet graphics.releaseTextures(params) "This convenience function disposes/releases all TextureResource objects of a specific type."
+graphics.releaseTextures( ${1:params} )
+endsnippet
+
+snippet io.close([file]) "Closes an open file handle. Equivalent to file:close(). If a file handle is not specified, this function closes the default output file."
+io.close( ${1:[file]} )
+endsnippet
+
+snippet io.flush() "Flushes the default output file. Equivalent to io.output():flush."
+io.flush()
+endsnippet
+
+snippet io.input(file) "Sets the standard input file. When called with a file handle, it simply sets this file handle as the default input file. When called without parameters, it returns the current default input file."
+io.input( ${1:file} )
+endsnippet
+
+snippet io.lines(file) "Opens the given file name in read mode and returns an iterator function that, each time it is called, returns a new line from the file."
+io.lines( ${1:file} )
+endsnippet
+
+snippet io.open(file[,mode]) "This function opens a file for reading or writing, in the string (default) or binary mode. It returns a new file handle or, in case of errors, nil plus an error message. This function can also be used to create a new file."
+io.open( ${1:file} ${2:[, mode]} )
+endsnippet
+
+snippet io.output([file]) "Sets the standard output file. When called with a file name, it opens the named file in text mode and sets its handle as the default output file. When called with a file handle, it simply sets this file handle as the default output file. When called without parameters, it returns the current default output file."
+io.output( ${1:[file]} )
+endsnippet
+
+snippet io.read([fmt1][,fmt2][,...]) "Reads the file set by io.input(), according to the given formats, which specify what to read. For each format, the function returns a string or a number with the characters read, or nil if it cannot read data with the specified format. When called without formats, it uses a default format that reads the entire next line ('*l')."
+io.read( ${1:[fmt1]} ${2:[, fmt2]} ${3:[, ...]} )
+endsnippet
+
+snippet io.tmpfile() "Opens a temporary file for reading and writing and returns a handle to it. When the app ends normally, this file will be deleted."
+io.tmpfile()
+endsnippet
+
+snippet io.type(obj) "Checks whether obj is a valid file handle. Returns the string 'file' if obj is an open file handle, 'closed file' if obj is a closed file handle, or nil if obj is not a file handle."
+io.type( ${1:obj} )
+endsnippet
+
+snippet io.write(arg1[,arg2][,...]) "Writes the value of each of its arguments to the file. The arguments must be strings or numbers. To write other values, use tostring() or string.format() before writing."
+io.write( ${1:arg1} ${2:[, arg2]} ${3:[, ...]} )
+endsnippet
+
+snippet json.decode(data[,position[,nullval]]) "Decodes the JSON-encoded data structure and returns a Lua object (table) with the appropriate data. The return values are a Lua object or nil, the position of the next character that doesn't belong to the object, or (in case of errors) an error message."
+json.decode( ${1:data} ${2:[, position [, nullval]]} )
+endsnippet
+
+snippet json.encode(t[,options]) "Returns the Lua object (table) as a JSON-encoded string. Since items with nil values in a Lua table effectively don't exist, you should use json.null as a placeholder value if you need to preserve array indices in your JSON (see discussion of nullval in json.decode())."
+json.encode( ${1:t} ${2:[, options]} )
+endsnippet
+
+snippet json.prettify(obj) "Returns a string which is a human readable representation of the given object (or valid JSON string). The string is indented and the top-level keys are sorted into alphabetical order."
+json.prettify( ${1:obj} )
+endsnippet
+
+snippet licensing.init(providerName) "Initializes the licensing service library by specifying the name of the licensing provider. Currently, only 'google' is supported."
+licensing.init( ${1:providerName} )
+endsnippet
+
+snippet licensing.verify(listener) "Starts the licensing verification process."
+licensing.verify( ${1:listener} )
+endsnippet
+
+snippet media.capturePhoto({listener,[,destination]}) "Opens a platform-specific interface to the device's camera. This function is asynchronous, meaning that it returns immediately so the calling code will continue to execute until the end of its scope; after that, the application will be suspended until the session is complete. By default, the image object is added to the top of the current stage, although there is an option to save the image to a directory instead."
+media.capturePhoto( { ${1:listener}, ${2:[, destination]} } )
+endsnippet
+
+snippet media.captureVideo({listener[,preferredQuality][,preferredMaxDuration]}) "Opens a platform-specific interface to the device's camera. This function is asynchronous, meaning that it returns immediately so the calling code will continue to execute until the end of its scope; after that, the application will be suspended until the session is complete. A listener is required to handle the captured object (URL) which can be used in native.newVideo() and media.playVideo()."
+media.captureVideo ( { ${1:listener} ${2:[, preferredQuality]} ${3:[, preferredMaxDuration]} } )
+endsnippet
+
+snippet media.hasSource(mediaSource) "Determines if the given media source, such as a camera or photo library, is available on the platform. This function should be called before calling media.selectPhoto() or media.capturePhoto() to determine if that media service is available. Returns true if the media source is available on the platform/device. Returns false if not."
+media.hasSource( ${1:mediaSource} )
+endsnippet
+
+snippet media.newEventSound(filename[,baseDir]) "Loads the event sound (1-3 seconds) from a sound file and returns an event sound ID that can be passed to media.playEventSound()."
+media.newEventSound( ${1:filename} ${2:[, baseDir]} )
+endsnippet
+
+snippet media.newRecording([path]) "Create an object for audio recording (Recording)."
+media.newRecording( ${1:[path]} )
+endsnippet
+
+snippet media.pauseSound() "Pauses playback of the extended sound currently opened by the previous call to media.playSound(). Use media.playSound() to resume playback of a paused sound."
+media.pauseSound()
+endsnippet
+
+snippet media.playEventSound(sound[,baseDir][,completionListener]) "Plays an event sound (1-3 seconds). The first argument may be either an event sound ID or a filename for the event sound. Recommended for short sounds, especially to avoid performance hiccups."
+media.playEventSound( ${1:sound} ${2:[, baseDir]} ${3:[, completionListener]} )
+endsnippet
+
+snippet media.playSound(soundfile[,baseDir][,onComplete]) "Plays an extended sound (as opposed to an 'event sound' which is typically 1-3 seconds in duration), or resumes play of a paused extended sound. You can only have one such sound file open at a time."
+media.playSound( ${1:soundfile} ${2:[, baseDir]} ${3:[, onComplete]} )
+endsnippet
+
+snippet media.playSound(soundfile[,baseDir][,loop]) "Plays an extended sound (as opposed to an 'event sound' which is typically 1-3 seconds in duration), or resumes play of a paused extended sound. You can only have one such sound file open at a time."
+media.playSound( ${1:soundfile} ${2:[, baseDir]} ${3:[, loop]} )
+endsnippet
+
+snippet media.playVideo(path[,baseSource],showControls,listener) "Plays the video at the specified path (both local and remote) in a device-specific popup media player."
+media.playVideo( ${1:path} ${2:[, baseSource ]}, ${3:showControls}, ${4:listener} )
+endsnippet
+
+snippet media.save(filename[,baseDir]) "Adds specified file to photo library."
+media.save( ${1:filename} ${2:[, baseDir]} )
+endsnippet
+
+snippet media.selectPhoto({listener[,mediaSource][,destination][,origin][,permittedArrowDirections]}) "Opens a platform-specific interface to the device's photo library. This function is asynchronous, meaning that it returns immediately so the calling code will continue to execute until the end of its scope; after that, the application will be suspended until the session is complete. By default, the image object is added to the top of the current stage, although there is an option to save the image to a directory instead."
+media.selectPhoto ( { ${1:listener} ${2:[, mediaSource]} ${3:[, destination]} ${4:[, origin]} ${5:[, permittedArrowDirections]} } )
+endsnippet
+
+snippet media.selectVideo({listener[,mediaSource][,origin][,permittedArrowDirections]}) "Opens a platform-specific interface to the device's photo library. This function is asynchronous, meaning that it returns immediately so the calling code will continue to execute until the end of its scope; after that, the application will be suspended until the session is complete."
+media.selectVideo ( { ${1:listener} ${2:[, mediaSource]} ${3:[, origin]} ${4:[, permittedArrowDirections]} } )
+endsnippet
+
+snippet media.setSoundVolume(volume) "Adjusts the playback volume of an extended sound (media.playSound()). This setting can be adjusted at any time before or during the extended sound playback."
+media.setSoundVolume( ${1:volume} )
+endsnippet
+
+snippet media.stopSound() "Stops playback of the extended sound currently opened by the previous call to media.playSound()."
+media.stopSound()
+endsnippet
+
+snippet native.cancelAlert(alert) "Dismisses an alert box programmatically. For example, you may wish to have a popup alert that automatically disappears after ten seconds even if the user doesn't click it. In that case, you could call this function at the end of a timer."
+native.cancelAlert( ${1:alert} )
+endsnippet
+
+snippet native.cancelWebPopup() "Dismisses the currently displaying web popup. This function takes no arguments because only one web popup can be shown at one time (not to be confused with native web views which can have multiple instances shown at once)."
+native.cancelWebPopup()
+endsnippet
+
+snippet native.canShowPopup(name) "Returns whether or not the popup type can be shown. This usually defines whether the popup will actually be displayed. However, in the case of 'appStore', a result of true does not guarantee that the popup will be displayed because, in those cases, the particular popup will depend on additional parameters."
+native.canShowPopup( ${1:name} )
+endsnippet
+
+snippet native.getFontNames() "Returns an array of the available native fonts."
+native.getFontNames()
+endsnippet
+
+snippet native.getProperty(key) "Gets the value of a platform-specific property."
+native.getProperty( ${1:key} )
+endsnippet
+
+snippet native.getSync(filename,params) "Gets the iCloud automatic backup settings for files in the system.DocumentsDirectory on OS X and iOS systems."
+native.getSync( ${1:filename}, ${2:params} )
+endsnippet
+
+snippet native.newFont(name[,size]) "Creates a font object that you can use to specify fonts in native text fields and text boxes."
+native.newFont( ${1:name} ${2:[, size]} )
+endsnippet
+
+snippet native.newMapView(centerX,centerY,width,height) "Renders a map view within the specified boundaries and returns a display object wrapper. On the map view, touch events are available when you add a mapLocation event listener."
+native.newMapView( ${1:centerX}, ${2:centerY}, ${3:width}, ${4:height} )
+endsnippet
+
+snippet native.newTextBox(centerX,centerY,width,height) "Creates a scrollable, multi-line text box for text input. For single-line text input, see native.newTextField()."
+native.newTextBox( ${1:centerX}, ${2:centerY}, ${3:width}, ${4:height} )
+endsnippet
+
+snippet native.newTextField(centerX,centerY,width,height) "Creates a single-line text field for text input. For multi-line text input, see native.newTextBox()."
+native.newTextField( ${1:centerX}, ${2:centerY}, ${3:width}, ${4:height} )
+endsnippet
+
+snippet native.newVideo(centerX,centerY,width,height) "Returns a video object that can be moved and rotated. This API supports local videos (in one of the system directories) or from a remote location (server)."
+native.newVideo( ${1:centerX}, ${2:centerY}, ${3:width}, ${4:height} )
+endsnippet
+
+snippet native.newWebView(centerX,centerY,width,height) "Loads a web page in a web view container. Native web views differ from web popups in that you can move them (via x/y properties) or rotate them (via the rotation property) in the same manner as other display objects."
+native.newWebView( ${1:centerX}, ${2:centerY}, ${3:width}, ${4:height} )
+endsnippet
+
+snippet native.requestExit() "Closes the application window on Android or Windows Phone gracefully without terminating the process."
+native.requestExit()
+endsnippet
+
+snippet native.setActivityIndicator(state) "Displays or hides a platform-specific activity indicator. Touch events are ignored while the indicator is shown."
+native.setActivityIndicator( ${1:state} )
+endsnippet
+
+snippet native.setKeyboardFocus(textField) "Sets keyboard focus on a native.newTextField() or native.newTextBox() and shows (or hides) the keyboard. Pass nil to remove focus and hide the keyboard. Hiding the keyboard dispatches an 'ended' phase to the native object's listener function."
+native.setKeyboardFocus( ${1:textField} )
+endsnippet
+
+snippet native.setProperty(key,value) "Sets a platform-specific property."
+native.setProperty( ${1:key}, ${2:value} )
+endsnippet
+
+snippet native.showAlert(title,message[,{buttonLabels}[,listener]]) "Displays a popup alert box with one or more buttons, using a native alert control. Program activity, including animation, will continue in the background, but all other user interactivity will be blocked until the user selects a button or cancels the dialog."
+native.showAlert( ${1:title}, ${2:message} ${3:[, { buttonLabels } [, listener] ]} )
+endsnippet
+
+snippet native.showPopup(name) "Displays the operating system's default popup window for a specified service. Displaying this popup suspends the app on both iOS and Android."
+native.showPopup( ${1:name} )
+endsnippet
+
+snippet native.showPopup(name,options) "Displays the operating system's default popup window for a specified service. Displaying this popup suspends the app on both iOS and Android."
+native.showPopup( ${1:name}, ${2:options} )
+endsnippet
+
+snippet native.showWebPopup([x,y,width,height,]url,[options]) "Creates a web popup that loads a local or remote web page."
+native.showWebPopup( ${1:[x, y, width, height,] url, [options]} )
+endsnippet
+
+snippet native.setSync(filename,params) "Sets the iCloud automatic backup flag for files in the system.DocumentsDirectory on OS X and iOS systems."
+native.setSync( ${1:filename}, ${2:params} )
+endsnippet
+
+snippet network.canDetectNetworkStatusChanges "Returns true if network reachability events are supported on the current platform."
+network.canDetectNetworkStatusChanges
+endsnippet
+
+snippet network.setStatusListener(hostURL,listener) "Starts monitoring a host for its network reachability status. This API is designed around the idea that you are monitoring individual hosts and not the hardware directly. Potentially, some hosts might continue to be reachable while others are not due to internet conditions, firewall configurations, authentication rules, and whether you need full DNS routing."
+network.setStatusListener( ${1:hostURL}, ${2:listener} )
+endsnippet
+
+snippet network.request(url,method,listener[,params]) "Makes an asynchronous HTTP or HTTPS request to a URL. This function returns a handle that can be passed to network.cancel() in order to cancel the request."
+network.request( ${1:url}, ${2:method}, ${3:listener} ${4:[, params]} )
+endsnippet
+
+snippet network.cancel(requestId) "Cancel an outstanding network request made with network.request(), network.upload(), or network.download()."
+network.cancel( ${1:requestId} )
+endsnippet
+
+snippet network.download(url,method,listener[,params],filename[,baseDirectory]) "This API is a convenience method that is very similar to the asynchronous network.request(), except that it always attempts to download the response to a local file that you specify. In fact, this method simply calls network.request(), putting the destination filename and baseDirectory parameters into params.response and specifying 'download' progress notifications."
+network.download( ${1:url}, ${2:method}, ${3:listener} ${4:[, params]}, ${5:filename} ${6:[, baseDirectory]} )
+endsnippet
+
+snippet network.upload(url,method,listener[,params],filename[,baseDirectory][,contentType]) "This API is a convenience method that is very similar to the asynchronous network.request(), except that always attempts to upload the request from a local file that you specify. In fact, this method simply calls network.request(), putting the source filename and baseDirectory parameters into a params.body table, adding contentType as a params.headers request header value, and specifying 'upload' progress notifications."
+network.upload( ${1:url}, ${2:method}, ${3:listener} ${4:[, params]}, ${5:filename} ${6:[, baseDirectory]} ${7:[, contentType]} )
+endsnippet
+
+snippet os.clock() "Returns an approximation of the amount in seconds of CPU time used by the program."
+os.clock()
+endsnippet
+
+snippet os.date([format[,time]]) "Returns a string or a table containing date and time, formatted according to the given string format. When called without arguments, os.date() returns a reasonable date and time representation that depends on the host system and on the current locale (that is, os.date() is equivalent to os.date('%c'))."
+os.date( ${1:[format [, time] ]} )
+endsnippet
+
+snippet os.difftime(t1,t2) "Returns the number of seconds from time t1 to time t2. In POSIX, Windows, and some other systems, this value is exactly t2 - t1."
+os.difftime( ${1:t1}, ${2:t2} )
+endsnippet
+
+snippet os.execute(cmd) "Passes a string to the operating system for execution and returns a system-dependent status code. This function is equivalent to the C function system()."
+os.execute( ${1:cmd} )
+endsnippet
+
+snippet os.exit([exit]) "Calls the C function exit(), with an optional code, to terminate the host program. The default value for code is the success code."
+os.exit( ${1:[ exit ]} )
+endsnippet
+
+snippet os.remove(file) "Deletes a file or directory and returns two possible values:"
+os.remove( ${1:file} )
+endsnippet
+
+snippet os.rename(oldname,newname) "Renames a file or directory and returns two possible values:"
+os.rename( ${1:oldname}, ${2:newname} )
+endsnippet
+
+snippet os.time(table) "Returns the current time in seconds from 1970 when called without arguments, or a time representing the date and time specified by the given table."
+os.time( ${1:table} )
+endsnippet
+
+snippet localname=require("moduleName") "Loads the given module."
+local name = require( "${1:moduleName}" )
+endsnippet
+
+snippet localname=require"moduleName" "Loads the given module."
+local name = require "moduleName"(
+endsnippet
+
+snippet package.loaded "A table used by require() to control which modules are already loaded. When you require a module modname and package.loaded[modname] is not false, require() simply returns the value stored there."
+package.loaded
+endsnippet
+
+snippet package.loaders "A table used by require() to control how to load modules."
+package.loaders
+endsnippet
+
+snippet physics.addBody(object,[bodyType,][params]) "This function turns almost any Corona display object into a simulated physical object with specific physical properties. It accepts the display object, an optional body type (string), and an optional params table containing key-value pairs that specify the properties for the physics body. Within this params table, the following apply:"
+physics.addBody( ${1:object}, ${2:[bodyType,]} ${3:[params]} )
+endsnippet
+
+snippet physics.fromMKS(unitName,value) "Convenience function for converting from MKS units to Corona units."
+physics.fromMKS( ${1:unitName}, ${2:value} )
+endsnippet
+
+snippet physics.getAverageCollisionPositions() "It's common for Box2D to report multiple contact points during a single iteration of a simulation."
+physics.getAverageCollisionPositions()
+endsnippet
+
+snippet physics.getDebugErrorsEnabled() "This function is used to determine if extra physics errors are allowed to be caught by Box2D."
+physics.getDebugErrorsEnabled()
+endsnippet
+
+snippet physics.getGravity() "Returns the x and y components of the global gravity vector, in units of m/s². This takes advantage of the fact that Lua functions can return multiple values, which in this case are:"
+physics.getGravity()
+endsnippet
+
+snippet physics.getMKS(key) "Get the MKS value of the physics simulation for specific keys."
+physics.getMKS( ${1:key} )
+endsnippet
+
+snippet physics.getReportCollisionsInContentCoordinates() "This function is used to determine if the content origin is the collision point in the collision, preCollision, and postCollision physics events."
+physics.getReportCollisionsInContentCoordinates()
+endsnippet
+
+snippet physics.newJoint(jointType,...) "Joints can be used to assemble complex physical objects from multiple rigid bodies. For example, joints can be used to join the limbs of a ragdoll figure, attach the wheels of a vehicle to its body, create a moving elevator platform, and more."
+physics.newJoint( ${1:jointType}, ${2:...} )
+endsnippet
+
+snippet physics.newParticleSystem(params) "A ParticleSystem object contains particles with liquid-like behavior under the LiquidFun framework."
+physics.newParticleSystem( ${1:params} )
+endsnippet
+
+snippet physics.pause() "Pause the physics engine."
+physics.pause()
+endsnippet
+
+snippet physics.queryRegion(upperLeftX,upperLeftY,lowerRightX,lowerRightY) "This function is used to find the objects that intersect with an axis-aligned (non-rotated) box. This box is defined by an upper-left coordinate and a lower-right coordinate."
+physics.queryRegion( ${1:upperLeftX}, ${2:upperLeftY}, ${3:lowerRightX}, ${4:lowerRightY} )
+endsnippet
+
+snippet physics.rayCast(fromX,fromY,toX,toY,behavior) "This function is used to find the objects that collide with a line, and the collision points along that line."
+physics.rayCast( ${1:fromX}, ${2:fromY}, ${3:toX}, ${4:toY}, ${5:behavior} )
+endsnippet
+
+snippet physics.reflectRay(fromX,fromY,hit) "This function is used to reflect a vector as returned by physics.rayCast()."
+physics.reflectRay( ${1:fromX}, ${2:fromY}, ${3:hit} )
+endsnippet
+
+snippet physics.removeBody(object) "Removes a physics body from a display object without destroying the entire object. This removes the body created with physics.addBody()."
+physics.removeBody( ${1:object} )
+endsnippet
+
+snippet physics.setAverageCollisionPositions(enabled) "Because it's common for Box2D to report multiple collision points during a single frame iteration, this setting is useful to report those points as one averaged point. This function applies to all the contact points in the collision, preCollision, and postCollision physics events."
+physics.setAverageCollisionPositions( ${1:enabled} )
+endsnippet
+
+snippet physics.setContinuous(enabled) "By default, Box2D performs continuous collision detection, which prevents objects from 'tunneling.' If it were turned off, an object that moves quickly enough could potentially pass through a thin wall."
+physics.setContinuous( ${1:enabled} )
+endsnippet
+
+snippet physics.setDebugErrorsEnabled(enabled) "This function allows extra physics errors to be caught by Box2D."
+physics.setDebugErrorsEnabled( ${1:enabled} )
+endsnippet
+
+snippet physics.setDrawMode(mode) "Sets one of three possible 'rendering modes' for the physics engine. While this feature will run on devices, it's most useful in the Corona Simulator when debugging unexpected physics engine behavior."
+physics.setDrawMode( ${1:mode} )
+endsnippet
+
+snippet physics.setGravity(gx,gy) "Sets the x and y components of the global gravity vector in units of m/s². The default is ( 0, 9.8 ) to simulate standard Earth gravity, pointing downward on the y axis."
+physics.setGravity( ${1:gx}, ${2:gy} )
+endsnippet
+
+snippet physics.setMKS(key,value) "Sets the MKS (meters, kilograms, and seconds) value of the physics simulation for specific keys. This is strictly for advanced purposes — the average developer and project will not require this function."
+physics.setMKS( ${1:key}, ${2:value} )
+endsnippet
+
+snippet physics.setPositionIterations(value) "Sets the accuracy of the engine's position calculations. The default value is 3."
+physics.setPositionIterations( ${1:value} )
+endsnippet
+
+snippet physics.setReportCollisionsInContentCoordinates(enabled) "This function sets the content origin as the collision point in the collision, preCollision, and postCollision physics events."
+physics.setReportCollisionsInContentCoordinates( ${1:enabled} )
+endsnippet
+
+snippet physics.setScale(value) "Sets the internal pixels-per-meter ratio that is used in converting between on-screen Corona coordinates and simulated physics coordinates. This should be done only once, before any physical objects are instantiated."
+physics.setScale( ${1:value} )
+endsnippet
+
+snippet physics.setTimeStep(dt) "Specifies either a frame-based (approximated) physics simulation or a time-based simulation."
+physics.setTimeStep( ${1:dt} )
+endsnippet
+
+snippet physics.setVelocityIterations(value) "Sets the accuracy of the engine's velocity calculations. The default value is 8."
+physics.setVelocityIterations( ${1:value} )
+endsnippet
+
+snippet physics.start(noSleep) "This function start the physics simulation and should be called before any other physics functions."
+physics.start( ${1:noSleep} )
+endsnippet
+
+snippet physics.stop() "Stops the physics engine. This function will return false and display a warning message if the API cannot be processed."
+physics.stop()
+endsnippet
+
+snippet physics.toMKS(unitName,value) "Convenience function for converting from Corona units to MKS units."
+physics.toMKS( ${1:unitName}, ${2:value} )
+endsnippet
+
+snippet store.finishTransaction(transaction) "Notifies the Apple iTunes Store that a transaction is complete."
+store.finishTransaction( ${1:transaction} )
+endsnippet
+
+snippet store.init([storeName,]listener) "Activates in-app purchases (in-app billing as it is known on Android platforms). Allows you to receive callbacks with the listener function that you specify."
+store.init( ${1:[storeName,]} ${2:listener} )
+endsnippet
+
+snippet store.loadProducts(productIdentifiers,listener) "iOS and the Google Play Marketplace support loading of product information that you've entered into iTunes Connect or the Google Play Developer Console. Corona provides the store.canLoadProducts property which will be true if the initialized store supports the loading of products. Following this check, the store.loadProducts() function will retrieve information about items available for sale. This includes the title, description, product identifier, type, and other details."
+store.loadProducts( ${1:productIdentifiers}, ${2:listener} )
+endsnippet
+
+snippet store.purchase(arrayOfProducts) "Initiates a purchase transaction on a provided list of products."
+store.purchase( ${1:arrayOfProducts} )
+endsnippet
+
+snippet store.restore() "Users who wipe the information on a device or buy a new device, may wish to restore previously purchased items without paying for them again. The store.restore() API initiates this process."
+store.restore()
+endsnippet
+
+snippet string.byte(s[,i[,j]]) "Returns the internal numerical codes of the characters in a string."
+string.byte( ${1:s} ${2:[, i [, j]]} )
+endsnippet
+
+snippet s:byte([,i[,j]]) "Returns the internal numerical codes of the characters in a string."
+s:byte( ${1:[, i [, j]]} )
+endsnippet
+
+snippet string.char([arg1[,...]) "Returns a string in which each character has the internal numerical code equal to its corresponding argument."
+string.char( ${1:[arg1 [, ...]} )
+endsnippet
+
+snippet string.find(s,pattern[,init[,plain]]) "Looks for the first match of a pattern in a string. If found, it returns the indices where the occurrence starts and ends; otherwise, returns nil."
+string.find( ${1:s}, ${2:pattern} ${3:[, init [, plain]]} )
+endsnippet
+
+snippet string.format(formatstring[,...]) "Returns a formatted string following the description given in its arguments."
+string.format( ${1:formatstring} ${2:[, ...]} )
+endsnippet
+
+snippet formatstring:format([...]) "Returns a formatted string following the description given in its arguments."
+formatstring:format( ${1:[...]} )
+endsnippet
+
+snippet string.gmatch(s,pattern) "Returns a pattern-finding iterator. See Lua String Manipulation for more information."
+string.gmatch( ${1:s}, ${2:pattern} )
+endsnippet
+
+snippet s:gmatch(pattern) "Returns a pattern-finding iterator. See Lua String Manipulation for more information."
+s:gmatch( ${1:pattern} )
+endsnippet
+
+snippet string.gsub(s,pattern,repl[,n]) "Replace all occurrences of a pattern in a string."
+string.gsub( ${1:s}, ${2:pattern}, ${3:repl} ${4:[, n]} )
+endsnippet
+
+snippet s:gsub(pattern,replace[,n]) "Replace all occurrences of a pattern in a string."
+s:gsub( ${1:pattern}, ${2:replace} ${3:[,n]} )
+endsnippet
+
+snippet string.len(s) "Returns the length of a string (amount of characters)."
+string.len( ${1:s} )
+endsnippet
+
+snippet s:len() "Returns the length of a string (amount of characters)."
+s:len()
+endsnippet
+
+snippet string.lower(s) "Change uppercase characters in a string to lowercase."
+string.lower( ${1:s} )
+endsnippet
+
+snippet s:lower() "Change uppercase characters in a string to lowercase."
+s:lower()
+endsnippet
+
+snippet string.match(s,pattern[,init]) "Extract substrings by matching a pattern in a string. If a match is found, the captures from the pattern; otherwise it returns nil. If pattern specifies no captures, then the whole match is returned."
+string.match( ${1:s}, ${2:pattern} ${3:[, init]} )
+endsnippet
+
+snippet s:match(pattern[,init]) "Extract substrings by matching a pattern in a string. If a match is found, the captures from the pattern; otherwise it returns nil. If pattern specifies no captures, then the whole match is returned."
+s:match( ${1:pattern} ${2:[, init]} )
+endsnippet
+
+snippet string.rep(s,n) "Replicates a string by returning a string that is the concatenation of n copies of a specified String."
+string.rep( ${1:s}, ${2:n} )
+endsnippet
+
+snippet s:rep(n) "Replicates a string by returning a string that is the concatenation of n copies of a specified String."
+s:rep( ${1:n} )
+endsnippet
+
+snippet string.reverse(s) "Reverses a string."
+string.reverse( ${1:s} )
+endsnippet
+
+snippet s:reverse() "Reverses a string."
+s:reverse()
+endsnippet
+
+snippet string.sub(s,i[,j]) "Returns a substring (a specified portion of an existing string)."
+string.sub( ${1:s}, ${2:i} ${3:[, j]} )
+endsnippet
+
+snippet s:sub(i[,j]) "Returns a substring (a specified portion of an existing string)."
+s:sub( ${1:i} ${2:[,j]} )
+endsnippet
+
+snippet string.upper(s) "Change lowercase characters in a string to uppercase. All other characters are left unchanged."
+string.upper( ${1:s} )
+endsnippet
+
+snippet s:upper() "Change lowercase characters in a string to uppercase. All other characters are left unchanged."
+s:upper()
+endsnippet
+
+snippet system.activate(feature) "Activates a system level feature, such as 'multitouch'. Use system.deactivate() to disable a feature."
+system.activate( ${1:feature} )
+endsnippet
+
+snippet system.deactivate(feature) "Deactivates a system level feature, such as 'multitouch'."
+system.deactivate( ${1:feature} )
+endsnippet
+
+snippet system.getIdleTimer() "Returns whether the application idle timer is enabled."
+system.getIdleTimer()
+endsnippet
+
+snippet system.getInfo(property) "Returns information about the system on which the application is running."
+system.getInfo( ${1:property} )
+endsnippet
+
+snippet system.getInputDevices() "Returns an array of InputDevice devices that are currently connected to the system, such as a touchscreen, keyboard, mouse, joystick, etc. Alternatively returns an empty array if no input devices are found. Note that input devices which were once connected but were later disconnected will not be returned by this function."
+system.getInputDevices()
+endsnippet
+
+snippet system.getPreference(category,name) "Returns a preference value as a string."
+system.getPreference( ${1:category}, ${2:name} )
+endsnippet
+
+snippet system.getTimer() "Returns time in milliseconds since application launch."
+system.getTimer()
+endsnippet
+
+snippet system.hasEventSource(eventName) "Returns whether the system delivers events corresponding to eventName."
+system.hasEventSource( ${1:eventName} )
+endsnippet
+
+snippet system.openURL(url) "Open a web page in the browser, create an email, or dial a phone number."
+system.openURL( ${1:url} )
+endsnippet
+
+snippet system.pathForFile(filename[,baseDirectory]) "Generates an absolute path using system-defined directories as the base. An additional optional parameter, baseDirectory, specifies which base directory is used to construct the full path, with its default value being system.ResourceDirectory."
+system.pathForFile( ${1:filename} ${2:[, baseDirectory]} )
+endsnippet
+
+snippet system.setAccelerometerInterval(frequency) "Sets the frequency of accelerometer events. On the iPhone, the minimum frequency is 10 Hz and the maximum is 100 Hz. Accelerometer events are a significant drain on battery, so only increase the frequency when you need faster responses."
+system.setAccelerometerInterval( ${1:frequency} )
+endsnippet
+
+snippet system.setGyroscopeInterval(frequency) "Sets the frequency of gyroscope events in Hz. Gyroscope events are a significant drain on battery, so only increase the frequency when you need faster responses."
+system.setGyroscopeInterval( ${1:frequency} )
+endsnippet
+
+snippet system.setIdleTimer(enabled) "Controls whether the idle timer is enabled. If set to true, the timer will be active (default) or inactive if false. When active, the idle timer dims the screen and eventually puts the device to sleep when no user activity occurs (e.g. screen touches)."
+system.setIdleTimer( ${1:enabled} )
+endsnippet
+
+snippet system.setLocationAccuracy(distance) "Sets the desired accuracy of location (GPS) events to distance in meters. Note: the actual accuracy depends on the capabilities of the device and/or platform. On the iPhone, accuracy is limited to discrete distances: < 10, 10, 100, 1000, and 3000 meters. Higher accuracy (smaller distances) requires more battery life, so use larger distance to preserve battery life."
+system.setLocationAccuracy( ${1:distance} )
+endsnippet
+
+snippet system.setLocationThreshold(distance) "Sets how much distance in meters must be travelled until the next location (GPS) event is sent. Because location events involve hardware that can drain the battery, using larger threshold distances preserve battery life."
+system.setLocationThreshold( ${1:distance} )
+endsnippet
+
+snippet system.setTapDelay(delayTime) "The delay time between when a tap is detected and when the tap event is delivered. By default, this time is 0."
+system.setTapDelay( ${1:delayTime} )
+endsnippet
+
+snippet system.vibrate() "Vibrates the phone. On the Corona simulator this will sound a system beep (OS X only)."
+system.vibrate()
+endsnippet
+
+snippet table.concat(t) "Concatenate the elements of a table together to form a string. Each element must be able to be coerced into a string. A separator can be specified which is placed between concatenated elements."
+table.concat( ${1:t} )
+endsnippet
+
+snippet table.concat(t,sep) "Concatenate the elements of a table together to form a string. Each element must be able to be coerced into a string. A separator can be specified which is placed between concatenated elements."
+table.concat( ${1:t}, ${2:sep} )
+endsnippet
+
+snippet table.concat(t,sep,i) "Concatenate the elements of a table together to form a string. Each element must be able to be coerced into a string. A separator can be specified which is placed between concatenated elements."
+table.concat( ${1:t}, ${2:sep}, ${3:i} )
+endsnippet
+
+snippet table.concat(t,sep,i,j) "Concatenate the elements of a table together to form a string. Each element must be able to be coerced into a string. A separator can be specified which is placed between concatenated elements."
+table.concat( ${1:t}, ${2:sep}, ${3:i}, ${4:j} )
+endsnippet
+
+snippet table.copy(t) "Returns a shallow copy of array, i.e. the portion of the array (table) with integer keys. A variable number of additional arrays can be passed in as optional arguments. If an array has a hole (a nil entry), copying in a given source array stops at the last consecutive item prior to the hole."
+table.copy( ${1:t} )
+endsnippet
+
+snippet table.copy(t,...) "Returns a shallow copy of array, i.e. the portion of the array (table) with integer keys. A variable number of additional arrays can be passed in as optional arguments. If an array has a hole (a nil entry), copying in a given source array stops at the last consecutive item prior to the hole."
+table.copy( ${1:t}, ${2:...} )
+endsnippet
+
+snippet table.indexOf(t,element) "Returns the integer index of element in array t. Returns nil if not in array. The search goes through the length of the array as determined by #t, whose value is undefined if there are holes."
+table.indexOf( ${1:t}, ${2:element} )
+endsnippet
+
+snippet table.insert(t,value) "Insert a given value into a table. If a position is given insert the value before the element currently at that position."
+table.insert( ${1:t}, ${2:value} )
+endsnippet
+
+snippet table.insert(t,pos,value) "Insert a given value into a table. If a position is given insert the value before the element currently at that position."
+table.insert( ${1:t}, ${2:pos}, ${3:value} )
+endsnippet
+
+snippet table.maxn(t) "Returns the largest positive numerical index of the given table, or zero if the table has no positive numerical indices. To do its job, this function does a linear traversal of the whole table."
+table.maxn( ${1:t} )
+endsnippet
+
+snippet table.remove(t) "Removes from table the element at position pos, shifting down other elements to close the space, if necessary. Returns the value of the removed element."
+table.remove( ${1:t} )
+endsnippet
+
+snippet table.remove(t,pos) "Removes from table the element at position pos, shifting down other elements to close the space, if necessary. Returns the value of the removed element."
+table.remove( ${1:t}, ${2:pos} )
+endsnippet
+
+snippet table.sort(t) "Sorts table elements in a given order, in-place, from table[1] to table[n], where n is the length of the table. It receives the table (array) to be sorted plus an optional compare function. This compare function receives two arguments and must return true if the first argument should come first in the sorted array. If compare is not given, then the standard Lua operator < is used instead."
+table.sort( ${1:t} )
+endsnippet
+
+snippet table.sort(t,compare) "Sorts table elements in a given order, in-place, from table[1] to table[n], where n is the length of the table. It receives the table (array) to be sorted plus an optional compare function. This compare function receives two arguments and must return true if the first argument should come first in the sorted array. If compare is not given, then the standard Lua operator < is used instead."
+table.sort( ${1:t}, ${2:compare} )
+endsnippet
+
+snippet timer.cancel(timerID) "Cancels a timer operation initiated with timer.performWithDelay()."
+timer.cancel( ${1:timerID} )
+endsnippet
+
+snippet timer.pause(timerId) "Pauses a timer started with timer.performWithDelay(). It returns a number that represents the amount of time remaining, in milliseconds."
+timer.pause( ${1:timerId} )
+endsnippet
+
+snippet timer.performWithDelay(delay,listener[,iterations]) "Call a specified function after a delay. This function returns an object that can be used with other timer functions. For example, the returned handle could be passed to timer.cancel() to cancel the invocation of the specified listener."
+timer.performWithDelay( ${1:delay}, ${2:listener} ${3:[, iterations]} )
+endsnippet
+
+snippet timer.resume(timerId) "Resumes a timer that was paused with timer.pause(). It returns a number that represents the amount of time remaining in the timer."
+timer.resume( ${1:timerId} )
+endsnippet
+
+snippet transition.cancel() "The transition.cancel() function will cancel one of the following, depending on the passed parameter:"
+transition.cancel()
+endsnippet
+
+snippet transition.cancel(transitionReference) "The transition.cancel() function will cancel one of the following, depending on the passed parameter:"
+transition.cancel( ${1:transitionReference} )
+endsnippet
+
+snippet transition.cancel(displayObject) "The transition.cancel() function will cancel one of the following, depending on the passed parameter:"
+transition.cancel( ${1:displayObject} )
+endsnippet
+
+snippet transition.cancel(tagName) "The transition.cancel() function will cancel one of the following, depending on the passed parameter:"
+transition.cancel( ${1:tagName} )
+endsnippet
+
+snippet transition.from(target,params) "Similar to transition.to() except that the starting property values are specified in the parameters table and the final values are the corresponding property values of the object prior to the call."
+transition.from( ${1:target}, ${2:params} )
+endsnippet
+
+snippet transition.pause() "The transition.pause() function pauses one of the following, depending on the passed parameter:"
+transition.pause()
+endsnippet
+
+snippet transition.pause(transitionReference) "The transition.pause() function pauses one of the following, depending on the passed parameter:"
+transition.pause( ${1:transitionReference} )
+endsnippet
+
+snippet transition.pause(displayObject) "The transition.pause() function pauses one of the following, depending on the passed parameter:"
+transition.pause( ${1:displayObject} )
+endsnippet
+
+snippet transition.pause(tagName) "The transition.pause() function pauses one of the following, depending on the passed parameter:"
+transition.pause( ${1:tagName} )
+endsnippet
+
+snippet transition.resume() "The transition.resume() function resumes one of the following, depending on the passed parameter:"
+transition.resume()
+endsnippet
+
+snippet transition.resume(transitionReference) "The transition.resume() function resumes one of the following, depending on the passed parameter:"
+transition.resume( ${1:transitionReference} )
+endsnippet
+
+snippet transition.resume(displayObject) "The transition.resume() function resumes one of the following, depending on the passed parameter:"
+transition.resume( ${1:displayObject} )
+endsnippet
+
+snippet transition.resume(tagName) "The transition.resume() function resumes one of the following, depending on the passed parameter:"
+transition.resume( ${1:tagName} )
+endsnippet
+
+snippet transition.to(target,params) "Animates (transitions) a display object using an optional easing algorithm. Use this to move, rotate, fade, or scale an object over a specific period of time."
+transition.to( ${1:target}, ${2:params} )
+endsnippet
+
+snippet widget.newButton(options) "Creates a Button object."
+widget.newButton( ${1:options} )
+endsnippet
+
+snippet widget.newPickerWheel(options) "Creates a Picker Wheel object."
+widget.newPickerWheel( ${1:options} )
+endsnippet
+
+snippet widget.newProgressView(options) "Creates a ProgressView object."
+widget.newProgressView( ${1:options} )
+endsnippet
+
+snippet widget.newScrollView(options) "Creates a ScrollView object."
+widget.newScrollView( ${1:options} )
+endsnippet
+
+snippet widget.newSegmentedControl(options) "Creates a Segmented Control object."
+widget.newSegmentedControl( ${1:options} )
+endsnippet
+
+snippet widget.newSlider(options) "Creates a Slider object."
+widget.newSlider( ${1:options} )
+endsnippet
+
+snippet widget.newSpinner(options) "Creates a Spinner object."
+widget.newSpinner( ${1:options} )
+endsnippet
+
+snippet widget.newStepper(options) "Creates a Stepper object. The stepper consists of a minus and plus button which can be tapped or held down to decrement/increment a value, for example, the music or sound volume setting in a game."
+widget.newStepper( ${1:options} )
+endsnippet
+
+snippet widget.newSwitch(options) "Creates a Switch object."
+widget.newSwitch( ${1:options} )
+endsnippet
+
+snippet widget.newTabBar(options) "Creates a TabBar object."
+widget.newTabBar( ${1:options} )
+endsnippet
+
+snippet widget.newTableView(options) "Creates a TableView object."
+widget.newTableView( ${1:options} )
+endsnippet
+
+snippet widget.setTheme(themeFile) "Use this function to set the overall theme of the widget library. This should be called immediately after you require() the widget library."
+widget.setTheme( ${1:themeFile} )
+endsnippet
+
+snippet EmitterObject:start() "Starts the emission of particles from an EmitterObject if the emitter is stopped, or resumes the emission of particles if the emitter is paused."
+EmitterObject:start()
+endsnippet
+
+snippet EmitterObject:stop() "Stops the emission of particles from an EmitterObject. This function allows the currently active particles to finish their cycle naturally."
+EmitterObject:stop()
+endsnippet
+
+snippet EmitterObject:pause() "Pauses (freezes) the EmitterObject. No particles will be added, removed, or animated while an emitter is paused."
+EmitterObject:pause()
+endsnippet
+
+snippet Runtime:hasEventSource(eventSourceName) "Determines if the device is capable of providing events for a given event source such as an 'accelerometer' or 'gyroscope'. You should call this function before calling the Runtime:addEventListener() function."
+Runtime:hasEventSource( ${1:eventSourceName} )
+endsnippet
+
+snippet Runtime:hideErrorAlerts() "Disables the runtime error alert that appears if the application hits an error condition. This is shorthand for defining your own unhandledError listener and returning true."
+Runtime:hideErrorAlerts()
+endsnippet
+
+snippet audio.freeChannels "This property is equal to the number of channels that are currently available for playback (channels not playing or paused)."
+audio.freeChannels
+endsnippet
+
+snippet audio.totalChannels "Returns the total number of channels. This value is currently 32, but the limit may change in the future."
+audio.totalChannels
+endsnippet
+
+snippet audio.unreservedFreeChannels "Returns the number of channels that are currently available for playback (channels not playing or paused), excluding the channels which have been reserved."
+audio.unreservedFreeChannels
+endsnippet
+
+snippet audio.unreservedUsedChannels "Returns the number of channels that are currently in use (playing or paused), excluding the channels which have been reserved."
+audio.unreservedUsedChannels
+endsnippet
+
+snippet audio.usedChannels "Returns the number of channels that are currently in use (playing or paused)."
+audio.usedChannels
+endsnippet
+
+snippet composer.isDebug "Toggles 'Composer Debug Mode' which, if set to true, prints useful debugging information to the Corona Simulator Console in certain situations. This should be set to false (default) before building the project for deployment."
+composer.isDebug
+endsnippet
+
+snippet composer.recycleOnLowMemory "If the OS issues a low memory warning, Composer will automatically recycle the scene used least recently (that scene's self.view will be removed). If you prefer to disable auto-recycling functionality, set this property to false. Default is true."
+composer.recycleOnLowMemory
+endsnippet
+
+snippet composer.recycleOnSceneChange "By default, when changing scenes, Composer keeps the current scene's view (self.view) in memory, which can improve performance if you access the same scenes frequently. If you set composer.recycleOnSceneChange to true, the scene's self.view display group will be removed, but its scene object will remain in memory. The default value is false."
+composer.recycleOnSceneChange
+endsnippet
+
+snippet composer.stage "Returns a reference to the top-level Composer display group which all scene views are inserted into. This can be considered as the 'Composer scene layer' and it's useful if you need to place display objects above or below all Composer scenes, even during transition effects. For example:"
+composer.stage
+endsnippet
+
+snippet store.availableStores "Array of store names for which Corona supports in-app purchases on the current device. This can also be used in conjunction with native.showPopup( 'appStore' ) (reference)."
+store.availableStores
+endsnippet
+
+snippet store.canLoadProducts "This property will be true if the initialized store supports the loading of products. Following this check, the store.loadProducts() function will retrieve information about items available for sale. This includes the title, description, product identifier, type, and other details."
+store.canLoadProducts
+endsnippet
+
+snippet store.canMakePurchases "This property is true if purchases are allowed, false otherwise."
+store.canMakePurchases
+endsnippet
+
+snippet store.isActive "To confirm that a store is properly initialized after calling store.init(), check the store.isActive() property. This will be true if the store has successfully initialized. Currently, it will be false on a Corona app built for Amazon or Nook."
+store.isActive
+endsnippet
+
+snippet store.target "Indicates the store that the app was built for. It will yield one of the following strings:"
+store.target
+endsnippet
+
+snippet system.orientation "String value identifying the orientation of the device:"
+system.orientation
+endsnippet
+
+snippet snapshot.canvas "This group is a special offscreen group that enables you to draw on the snapshot's texture without redrawing the objects in snapshot.group."
+snapshot.canvas
+endsnippet
+
+snippet snapshot.canvasMode "The canvas mode controls what happens to the children of the snapshot's canvas."
+snapshot.canvasMode
+endsnippet
+
+snippet snapshot.clearColor "The clear color controls how the snapshot's texture is cleared when the snapshot is invalidated."
+snapshot.clearColor
+endsnippet
+
+snippet snapshot.group "This group is a special offscreen group that determines what is rendered in the snapshot."
+snapshot.group
+endsnippet
+
+snippet snapshot.textureFilter "This controls the texture filter mode for the snapshot. See the Texture Keys section of display.setDefault() for valid filter values."
+snapshot.textureFilter
+endsnippet
+
+snippet snapshot.textureWrapX "This controls the texture wrap in the x direction for the snapshot. See the Texture Keys section of display.setDefault() for valid wrap values."
+snapshot.textureWrapX
+endsnippet
+
+snippet snapshot.textureWrapY "This controls the texture wrap in the y direction for the snapshot. See the Texture Keys section of display.setDefault() for valid wrap values."
+snapshot.textureWrapY
+endsnippet
